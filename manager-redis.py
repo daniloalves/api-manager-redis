@@ -1,27 +1,34 @@
 # -*- encoding: utf-8 -*-
 
 from commons import log, redis_conn
+from flask import make_response, abort
 import json
 
 def add_keys(keys):
     log("Adding Keys..")
+    redis = redis_conn()    
+    for key in keys:
+        name = key['name']
+        value = json.dumps(key['value'])
+        resp = redis.set(name,value)
 
-    redis = redis_conn()
-    for k,v in keys.items():
-        redis.set(k,v)
+        if resp:
+            return make_response(
+                "Successfully created.",200
+            )
+        else:
+            return abort(
+                404, "[ERROR] On created!"
+            )
 
 def get_keys(keys):
     log("Getting Keys..")
-    log(f"Keys: {keys}",'debug')
-    log(type(keys),'debug')
     redis = redis_conn()
     keys_return = {}
     for key in keys:
         key = key.replace('"','')
         key = key.replace("'","")
-        log(f"Keys: {key}")
         resp = redis.get(key)
-        log(f"resp: {resp}")
         if resp:
             keys_return[key] = resp.decode('utf-8', 'replace')
     return keys_return
