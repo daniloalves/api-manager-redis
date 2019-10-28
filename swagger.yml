@@ -18,7 +18,7 @@ paths:
       tags:
         - "People"
       summary: "The people data structure supported by the server application"
-      description: "Read the list of people"
+      description: 'Example: http://127.0.0.1:5000/api/get_keys?keys=4.3.2.1.dnsbl.sympla.com.br.'
       parameters:
         - name: keys
           in: query
@@ -32,11 +32,21 @@ paths:
           description: "Successful read people list operation"
           schema:
             type: "array"
-            items:
-              properties:
-                fname:
-                  type: "string"
-                lname:
-                  type: "string"
-                timestamp:
-                  type: "string"
+  /add_keys:
+    post:
+      operationId: "manager-redis.add_keys"
+      tags:
+        - "Add_Keys"
+      summary: "To add a new key on DNS Server"
+      description: 'Example: [{"name": "4.3.2.1.dnsbl.sympla.com.br.", "value": {"fqdn": "4.3.2.1.dnsbl.sympla.com.br.","ipv4_public_ips": ["127.0.0.1"],"ttl": 300,"origin": "tor"}}]'
+      parameters:
+        - name: keys
+          in: body
+          schema:
+            type: array
+          required: True
+      responses:
+        200:
+          description: "Successful add keys operation"
+          schema:
+            type: "string"
