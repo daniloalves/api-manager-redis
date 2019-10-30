@@ -32,6 +32,8 @@ paths:
           description: "Successful read people list operation"
           schema:
             type: "array"
+      security:
+        - apiKey: []
   /add_keys:
     post:
       operationId: "manager-redis.add_keys"
@@ -50,3 +52,12 @@ paths:
           description: "Successful add keys operation"
           schema:
             type: "string"
+securityDefinitions:
+  basic:
+    type: basic
+    x-basicInfoFunc: security.basic_auth
+  apiKey:
+    type: apiKey
+    in: header
+    name: X-Auth
+    x-apikeyInfoFunc: security.apikey_auth
