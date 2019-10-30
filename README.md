@@ -12,3 +12,4 @@
 
 ## Fonts:
 * https://connexion.readthedocs.io/en/latest/security.html
+* https://swagger.io/docs/specification/authentication/#multiple
