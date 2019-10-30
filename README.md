@@ -10,5 +10,5 @@
 	* Authentication user/pass and generate token.
 	* Add a database for API Tokens.
 
-## Fontes:
+## Fonts:
 * https://connexion.readthedocs.io/en/latest/security.html
