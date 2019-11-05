@@ -18,7 +18,7 @@ paths:
       tags:
         - "People"
       summary: "The people data structure supported by the server application"
-      description: 'Example: http://127.0.0.1:5000/api/get_keys?keys=4.3.2.1.dnsbl.sympla.com.br.'
+      description: 'Example: http://127.0.0.1:5000/api/get_keys?keys=4.3.2.1.dnsbl.domain.com.br.'
       parameters:
         - name: keys
           in: query
@@ -40,7 +40,7 @@ paths:
       tags:
         - "Add_Keys"
       summary: "To add a new key on DNS Server"
-      description: 'Example: [{"name": "4.3.2.1.dnsbl.sympla.com.br.", "value": {"fqdn": "4.3.2.1.dnsbl.sympla.com.br.","ipv4_public_ips": ["127.0.0.1"],"ttl": 300,"origin": "tor"}}]'
+      description: 'Example: [{"name": "4.3.2.1.dnsbl.domain.com.br.", "value": {"fqdn": "4.3.2.1.dnsbl.domain.com.br.","ipv4_public_ips": ["127.0.0.1"],"ttl": 300,"origin": "tor"}}]'
       parameters:
         - name: keys
           in: body
