@@ -7,7 +7,7 @@ TOKEN_DB = {
         'uid': 0
     }
 }
-USER=DB = {
+USER_DB = {
     'admin': {
         'passwd': '123'
     }
